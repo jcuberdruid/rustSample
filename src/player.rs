@@ -1,21 +1,30 @@
 use crate::ship::Ship;
 use crate::ship::ShipType;
+use crate::tile::Board;
 
 pub struct Player {
     pub ships: Vec<Ship>,
+    pub board: Board,
 }
 
-impl Player {
-    pub fn setup(&mut self) {
-        self.ships.push(Ship::new(ShipType::Carrier));
-        self.ships.push(Ship::new(ShipType::Battleship));
-        self.ships.push(Ship::new(ShipType::Cruiser));
-        self.ships.push(Ship::new(ShipType::Cruiser));
-        self.ships.push(Ship::new(ShipType::Destroyer));
-        self.ships.push(Ship::new(ShipType::Destroyer));
-        self.ships.push(Ship::new(ShipType::Destroyer));
-        self.ships.push(Ship::new(ShipType::Destroyer));
+impl Default for Player {
+    fn default() -> Player { 
+        // pub fn setup(&mut self) {
+        let board = Board::default();
+        let mut ships: Vec<Ship> = Vec::new(); 
+
+        ships.push(Ship::new(ShipType::Carrier));
+        ships.push(Ship::new(ShipType::Battleship));
+        ships.push(Ship::new(ShipType::Cruiser));
+        ships.push(Ship::new(ShipType::Cruiser));
+        ships.push(Ship::new(ShipType::Destroyer));
+        ships.push(Ship::new(ShipType::Destroyer));
+        ships.push(Ship::new(ShipType::Destroyer));
+        ships.push(Ship::new(ShipType::Destroyer));
+        
+        return Player { board, ships }
     }
+
     // place ships
     // fire postion 
 }
