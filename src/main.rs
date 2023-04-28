@@ -1,3 +1,9 @@
+#![allow(non_snake_case)]
+#![allow(dead_code)]
+#![allow(unused_variables)]
+#![allow(unused_mut)]
+#![allow(unused_imports)]
+
 mod ship;
 mod player;
 mod tile; 
@@ -10,5 +16,7 @@ fn main() {
 //    let mut player_one = Player { ships: Vec::new(), board: board};
     print!("test");
     let mut player_one = Player::default(); 
-    player_one.isTileEmpty(tile: (5, 5));
+    player_one.isClear(5, 5);
+    player_one = player_one.setTile(5, 5, 1);
+    player_one.isClear(5, 5);
 }

@@ -13,34 +13,37 @@ impl Default for Player {
         let board = Board::default();
         let mut ships: Vec<Ship> = Vec::new(); 
 
-        ships.push(Ship::new(ShipType::Carrier));
-        ships.push(Ship::new(ShipType::Battleship));
-        ships.push(Ship::new(ShipType::Cruiser));
-        ships.push(Ship::new(ShipType::Cruiser));
-        ships.push(Ship::new(ShipType::Destroyer));
-        ships.push(Ship::new(ShipType::Destroyer));
-        ships.push(Ship::new(ShipType::Destroyer));
-        ships.push(Ship::new(ShipType::Destroyer));
+        ships.push(Ship::new(ShipType::Carrier, 0));
+        ships.push(Ship::new(ShipType::Battleship, 1));
+        ships.push(Ship::new(ShipType::Cruiser, 2));
+        ships.push(Ship::new(ShipType::Cruiser, 3));
+        ships.push(Ship::new(ShipType::Destroyer, 4));
+        ships.push(Ship::new(ShipType::Destroyer, 5));
+        ships.push(Ship::new(ShipType::Destroyer, 6));
+        ships.push(Ship::new(ShipType::Destroyer, 7));
         
         return Player { board, ships }
     }
-    fn isClear(self, tile: (u8, u8)) {
+}
 
-        bool test = self.board.isTileEmpty(tile);
-        print(test)
+impl Player { 
+  pub fn isClear(self, x: u32, y: u32) {
+        let test: bool = self.board.isTileEmpty(x, y);
+        print!("{}", test); 
     }
-    fn placeShips () {
+ pub fn setTile(self, x: u32, y: u32, sI: u16) -> Player {
+        self.board.setTile(x, y, sI);
+
+        return self; 
+    }
+
+//    fn placeShips () {
         // niave solution randomly selected 
         //choose random location
         // is empty? 
         // - yes check valid orientations 
         // - no ^ back to choose random location 
-
-
-    }
-    fn validOrientation(tile: (u8, u8)) { 
-            
-    }
+ //   }
 
     // place ships
     // fire postion 
