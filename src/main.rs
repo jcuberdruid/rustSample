@@ -17,6 +17,6 @@ fn main() {
     print!("test");
     let mut player_one = Player::default(); 
     player_one.isClear(5, 5);
-    player_one = player_one.setTile(5, 5, 1);
+    player_one.setTile(5, 5, 1);
     player_one.isClear(5, 5);
 }

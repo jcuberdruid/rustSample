@@ -27,14 +27,12 @@ impl Default for Player {
 }
 
 impl Player { 
-  pub fn isClear(self, x: u32, y: u32) {
+  pub fn isClear(&mut self, x: u32, y: u32) {
         let test: bool = self.board.isTileEmpty(x, y);
-        print!("{}", test); 
+        println!("is the tile clear? {}", test); 
     }
- pub fn setTile(self, x: u32, y: u32, sI: u16) -> Player {
+ pub fn setTile(&mut self, x: u32, y: u32, sI: u16) {
         self.board.setTile(x, y, sI);
-
-        return self; 
     }
 
 //    fn placeShips () {

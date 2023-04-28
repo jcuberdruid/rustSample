@@ -26,7 +26,7 @@ impl Default for Board {
 }
 
 impl Board { 
-    pub fn isTileEmpty(self, x: u32, y: u32) -> bool { 
+    pub fn isTileEmpty(&mut self, x: u32, y: u32) -> bool { 
         // yes -> set tile used, index = ship_index, hit = false, ret true 
         let thisTile: Tile = self.grid[(x*y) as usize];
         
@@ -36,7 +36,7 @@ impl Board {
         }
         return false; 
     }
-    pub fn setTile(mut self, x: u32, y: u32, sI: u16) { 
+    pub fn setTile(&mut self, x: u32, y: u32, sI: u16) { 
         let thisTile: Tile = Tile::Used{shipIndex: sI, hit: false};
         self.grid[(x*y) as usize] = thisTile; 
     }
