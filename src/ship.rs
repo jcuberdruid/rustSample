@@ -20,8 +20,8 @@ impl ShipType {
 }
 
 pub struct Ship {
-    ship_type: ShipType,
-    lives: u16,
+    pub ship_type: ShipType,
+    pub lives: u16,
 }
 
 impl Ship {
